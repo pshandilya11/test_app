@@ -17,4 +17,8 @@
     <string name="button">Button</string>
     <string name="backbutton">backbutton</string>
     <string name="play">Play</string>
+    <string name="get_out">Get Out</string>
+    <string name="get_in">Get In</string>
+
+    <string name="image">image</string>
 </resources>

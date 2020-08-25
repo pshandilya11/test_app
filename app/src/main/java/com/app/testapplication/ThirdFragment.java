@@ -36,6 +36,16 @@ public class ThirdFragment extends Fragment {
 
     public void onViewCreated(@NonNull final View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        TextView points = view.findViewById(R.id.points);
+        Button lb = view.findViewById(R.id.left_button);
+        Button rb = view.findViewById(R.id.right_button);
+        Random number = new Random();
+        int l = number.nextInt(10);
+        lb.setText(String.valueOf(l));
+        points.setText(String.valueOf(l));
+        int r = number.nextInt(10);
+        rb.setText(String.valueOf(r));
+        points.setText(String.valueOf("points: "+p));
 
         view.findViewById(R.id.back_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,19 +68,19 @@ public class ThirdFragment extends Fragment {
                 points.setText(String.valueOf(l));
                 int r = number.nextInt(10);
                 rb.setText(String.valueOf(r));
-               if (l > r) {
+                if (l > r) {
                     //you win
                     p++;
-                    points.setText(String.valueOf(p));
-                  //  Toast.makeText(R.id.left_button,"you won", LENGTH_SHORT).show();
+
                 } else {
                     if (p >= 0) {
                         p--;
                     } else {
-                        points.setText(String.valueOf(0));
+                        p=0;
                     }
-                //    Toast.makeText(this, "ohoo! you lost", LENGTH_SHORT).show();
+                    // Toast.makeText( android.app.Activity, "ohoo! you lost", LENGTH_SHORT).show();
                 }
+                points.setText(String.valueOf("points: "+p));
             }
 
         });
@@ -91,23 +101,20 @@ public class ThirdFragment extends Fragment {
                 if (l < r) {
                     //you win
                     p++;
-                    points.setText(String.valueOf(p));
 
                 } else {
                     if (p >= 0) {
                         p--;
                     } else {
-                        points.setText(String.valueOf(0));
+                        p=0;
                     }
                  // Toast.makeText( android.app.Activity, "ohoo! you lost", LENGTH_SHORT).show();
                 }
+                points.setText(String.valueOf("points: "+p));
 
             }
         });
-
-
-}
-
+    }
     }
 
 
