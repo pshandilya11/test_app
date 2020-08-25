@@ -44,21 +44,21 @@ public class ThirdFragment extends Fragment {
                         .navigate(R.id.action_thirdFragment_to_FirstFragment);
             }
         });
-        view.findViewById(R.id.left_button);
-        view.setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.left_button).setOnClickListener(new View.OnClickListener() {
+            TextView points = view.findViewById(R.id.points);
+            Button lb = view.findViewById(R.id.left_button);
+            Button rb = view.findViewById(R.id.right_button);
 
             @Override
             public void onClick(View view) {
-                TextView points = view.findViewById(R.id.points);
-                Button lb = view.findViewById(R.id.left_button);
-                Button rb = view.findViewById(R.id.right_button);
 
                 Random number = new Random();
                 int l = number.nextInt(10);
                 lb.setText(String.valueOf(l));
+                points.setText(String.valueOf(l));
                 int r = number.nextInt(10);
                 rb.setText(String.valueOf(r));
-                if (l > r) {
+               if (l > r) {
                     //you win
                     p++;
                     points.setText(String.valueOf(p));
@@ -72,14 +72,15 @@ public class ThirdFragment extends Fragment {
                 //    Toast.makeText(this, "ohoo! you lost", LENGTH_SHORT).show();
                 }
             }
+
         });
         view.findViewById(R.id.right_button).setOnClickListener(new View.OnClickListener() {
-
+            TextView points = view.findViewById(R.id.points);
+            Button lb = view.findViewById(R.id.left_button);
+            Button rb = view.findViewById(R.id.right_button);
             @Override
             public void onClick(View view) {
-                TextView points = view.findViewById(R.id.points);
-                Button lb = view.findViewById(R.id.left_button);
-                Button rb = view.findViewById(R.id.right_button);
+
 
                // Toast.makeText(this,"you won", LENGTH_SHORT).show();
                 Random number = new Random();
@@ -98,7 +99,7 @@ public class ThirdFragment extends Fragment {
                     } else {
                         points.setText(String.valueOf(0));
                     }
-                  //  Toast.makeText(this, "ohoo! you lost", LENGTH_SHORT).show();
+                 // Toast.makeText( android.app.Activity, "ohoo! you lost", LENGTH_SHORT).show();
                 }
 
             }
